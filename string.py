@@ -53,10 +53,10 @@ class String:
         return cls.Concatenate(cls.Substring(text, 1, position - 1),
                 cls.Substring(text, position + length, cls.Length(text) - position - length + 1))
 
-    @classmethod
-    def Replace(cls, text, pattern1, pattern2):
-        patern_position = cls.Index(text, pattern1)
-        while patern_position != 0:
-            text = cls.Replace(text, pattern1, pattern2)
-            patern_position = cls.Index(text, pattern1)
-        return text
+    #@classmethod
+    #def Replace(cls, text, pattern1, pattern2):
+    #    patern_position = cls.Index(text, pattern1)
+    #    while patern_position != 0:
+    #        text = cls.Replace(text, pattern1, pattern2)
+    #        patern_position = cls.Index(text, pattern1)
+    #     return text
