@@ -1,4 +1,5 @@
 from math import sqrt
+from random import randint
 
 
 class ChapterTwo:
@@ -73,3 +74,27 @@ class ChapterTwo:
             data = crossout(data, num)
         return data
 
+    class TwoPointFive:
+        def __init__(self):
+            self.note = "Should have made all methods static"
+
+        def __count(self, data, size):
+            location = 0
+            biggest_number = data[0]
+            number_executed = 0
+            for i in range(size):
+                if biggest_number < data[i]:
+                    location = i
+                    biggest_number = data[i]
+                    number_executed += 1
+            return number_executed
+
+        def __rand_count(self, size):
+            data = [randint(0, 1) for i in range(size)]
+            return self.__count(data, size)
+
+        def thousand_count(self, size):
+            total = 0
+            for i in range(1000):
+                total += self.__rand_count(size)
+            return total / 1000
