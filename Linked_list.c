@@ -40,3 +40,14 @@ void print_list(){
     }
     printf(" ]");
 }
+
+int search_by_key(int key){
+    struct Node *var = head;
+    while(var != NULL){
+        if(var -> key == key){
+            return var -> value;
+        }
+        var = var -> next;
+    }
+    return -1;
+}
