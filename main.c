@@ -1,12 +1,16 @@
 #include<stdio.h>
-#include"neoc.h"
-lines paragraph();
+
+void insert_first(int key, int value);
+void insert_last(int key, int value);
+void print_list();
+
 int main(){
-    lines var1 = paragraph();
-    printf("Paragraphs are at");
-    for(int i = 0; i < var1.npar; i++){
-        printf(" %d", var1.par[i]);
+    printf("5 numbers list, Write values : ");
+    for(int i = 0; i < 5; i++){
+        int input;
+        scanf("%d", &input);
+        insert_last(i, input);
     }
-    printf(" and total Paragraphs are %d", var1.npar);
+    print_list();
     return 0;
 }
