@@ -38,16 +38,33 @@ void print_list(){
         printf(", %d", var -> value);
         var = var -> next;
     }
-    printf(" ]");
+    printf(" ]\n");
 }
 
-int search_by_key(int key){
+struct Node* search_by_key(int key){
     struct Node *var = head;
     while(var != NULL){
         if(var -> key == key){
-            return var -> value;
+            return var;
         }
         var = var -> next;
     }
-    return -1;
+    return NULL;
+}
+struct Node* delete(int key){
+    struct Node *var = head, *previous = NULL;
+    while(var != NULL){
+        if(var -> key == key){
+            if(var == head){
+                head = head -> next;
+            }
+            else{
+                previous -> next = var -> next;
+                return var;
+            }
+        }
+        previous = var;
+        var = var -> next;
+    }
+    return NULL;
 }
