@@ -3,9 +3,12 @@
 
 extern struct Node *head;
 
-void insert_after(int data1, int data2){
-    struct Node* var = head;
-    while(var -> next){
-        //Under construction
-    }
+void delete_first(){
+    head = head -> next;
+}
+
+void delete_last(){
+    struct Node *var = head;
+    for(var; var -> next -> next; var = var -> next){}
+    var -> next = NULL;
 }

@@ -89,6 +89,18 @@ int insert(int data, int position){
     }
 }
 
+void insert_after(int data1, int data2){
+    for(struct Node *var = head; var != NULL; var = var -> next){
+        if(var -> value == data1){
+            struct Node *node = (struct Node*) malloc(sizeof(struct Node));
+            node -> value = data2;
+            node -> next = var -> next;
+            var -> next = node;
+            break;
+        }
+    }
+}
+
 void bubble_sort(){
     for(int i = 0; i < list_size() - 1; i++){
         for(struct Node *var = head; var -> next; var = var -> next){
@@ -97,6 +109,17 @@ void bubble_sort(){
                 var -> value = var -> next -> value;
                 var -> next -> value = temp;
             }
+        }
+    }
+}
+
+void replace(int data, int new_data){
+    for(struct Node* var = head, *previous = NULL; var != NULL; previous = var, var = var -> next){
+        if(var -> value == data){
+            struct Node *node = (struct Node*) malloc(sizeof(struct Node));
+            node -> value = new_data;
+            node -> next = var -> next;
+            previous -> next = node;
         }
     }
 }
