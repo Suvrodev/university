@@ -4,26 +4,28 @@
 
 void insert_last(int value);
 void print_list();
-void print_keys();
 void insert_first();
 int insert(int data, int position);
+void bubble_sort();
+struct Node* delete(int value);
+int list_size();
 
 int main(){
-    for(int i = 0; i < 5; i++){
-        insert_last(10 + i);
+    for(int i = 0; i < 10; i++){
+        insert_first(10 + i);
     }
     print_list();
-    printf("Keys : \n");
-    print_keys();
-    printf("Value of insert and position : ");
-    int key, position;
-    scanf("%d %d", &key, &position);
-    int flag = insert(key, position);
-    if(flag){
-        printf("Position is too far.\n");
-    }
+    printf("List size is %d.\n", list_size());
+    // printf("Value of insert and position : ");
+    // int value, position;
+    // scanf("%d %d", &value, &position);
+    // delete(value);
+    // int flag = insert(value, position);
+    // if(flag){
+    //     printf("Position is too far.\n");
+    // }
+    bubble_sort();
     print_list();
-    printf("Keys : \n");
-    print_keys();
+    printf("List size is %d.\n", list_size());
     return 0;
 }

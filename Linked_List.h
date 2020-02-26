@@ -3,7 +3,6 @@
 
 struct Node{
     int value;
-    int key;
     struct Node *next;
 };
 
