@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void insert(int value);
-void print();
+void main_exp();
+
 int main(){
+    main_exp();
     return 0;
 }

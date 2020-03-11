@@ -29,7 +29,7 @@ class Stack:
     def pop(self):
         deleted_data = self.top
         self.top = self.top.next
-        return deleted_data
+        return deleted_data.value
 
     def peek(self):
         return self.top
