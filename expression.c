@@ -8,7 +8,10 @@ float pop();
 float peek();
 
 float post_eval(char** value, int value_size, int *double_value, int double_v_size){
-    for(int i = 0; i < value_size; i++){
+    value = (char**) realloc(value, (value_size + 1) * sizeof(char*));
+    *(value + value_size) = (char*) malloc(sizeof(char));
+    *(*(value + value_size)) = ')';
+    for(int i = 0; i < value_size + 1; i++){
         int flag = true;
         for(int j = 0; j < double_v_size; j++){
             if(i == *(double_value + j)){
@@ -49,9 +52,9 @@ float post_eval(char** value, int value_size, int *double_value, int double_v_si
 
 void main_exp(){
     // char data[9][2] = {{'5'}, {'6'}, {'2'}, {'+'}, {'*'}, {'1', '2'}, {'4'}, {'/'}, {'-'}};
-    char *data1 = "562+*", *data2 = "4/-)", *data3 = "12";
-    char **exp = (char**) malloc(10  * sizeof(char*));
-    int data1_size = 5, data2_size = 4;
+    char *data1 = "562+*", *data2 = "4/-", *data3 = "12";
+    char **exp = (char**) malloc(9  * sizeof(char*));
+    int data1_size = 5, data2_size = 3;
     for(int i = 0; i < data1_size; i++){
         *(exp + i) = (char*) malloc(sizeof(char));
         *(*(exp + i)) = *(data1 + i);
@@ -65,5 +68,5 @@ void main_exp(){
     }
     int *d_v = (int*) malloc(sizeof(int));
     *(d_v) = 5;
-    printf("%f", post_eval(exp, 10, d_v, 1));
+    printf("%f", post_eval(exp, 9, d_v, 1));
 }
