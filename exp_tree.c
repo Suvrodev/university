@@ -95,3 +95,45 @@ void insert_left(char value){
         get_left_first(root, value);
     }
 }
+
+void in_order(Node *var){
+    if(var -> left_node){
+        in_order(var -> left_node);
+    }
+    printf("%c", var -> data);
+    if(var -> right_node){
+        in_order(var -> right_node);
+    }
+}
+
+void pre_order(Node *var){
+    printf("%c", var -> data);
+    if(var -> left_node){
+        pre_order(var -> left_node);
+    }
+    if(var -> right_node){
+        pre_order(var -> right_node);
+    }
+}
+
+void post_order(Node *var){
+    if(var -> left_node){
+        post_order(var -> left_node);
+    }
+    if(var -> right_node){
+        post_order(var -> right_node);
+    }
+    printf("%c", var -> data);
+}
+
+void traverse(int mode){
+    if(mode == 1){
+        in_order(root);
+    }
+    else if(mode == 2){
+        post_order(root);
+    }
+    else{
+        pre_order(root);
+    }
+}
