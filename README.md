@@ -1,2 +1,2 @@
 # university
-Repository for sync among my devices
+Repo for testing Algorithm and Data Structures
