@@ -1,6 +1,7 @@
 #include<stdio.h>
 int* bubble_sort(int *data, int size){
-    for(int i = 0; i < size; i++){
+    int old_size = size;
+    for(int i = 0; i < old_size; i++){
         for(int j = 0; j < (size - 1); j++){
             if(data[j] > data[j + 1]){
                 int temp = data[j + 1];
